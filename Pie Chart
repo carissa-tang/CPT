@@ -1,0 +1,24 @@
+elements = ((10.99, 12.50, 49.99, 20.15), ("Clothes", "Restaurant", "Shoes", "Gifts"))
+
+def total():
+    total = 0
+    for price in elements[0]:
+        total += price
+    return total
+
+def percentage(total):
+    total = total()
+    percentage = 0
+    percents = []
+    for price in elements[0]:
+        percentage = price / total * 100
+        percentage = "%.2f" % round(percentage,2)
+        percents.append(percentage)
+    return percents
+
+def main():
+    percent = percentage(total)
+    print("Percentage is", percent)
+
+main()
+
