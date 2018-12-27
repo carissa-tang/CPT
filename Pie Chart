@@ -22,6 +22,8 @@ def main():
 
 main()
 
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 days = [1, 2, 3, 4, 5]
