@@ -1,0 +1,22 @@
+from Tkinter import *
+
+root = Tk()
+
+
+def text():
+    label_0 = Label(root, text="REPORT")
+    label_0.grid(row=0, columnspan=2)
+
+
+def buttons():
+    button = Button(root, text="reset")
+    button.grid(row=0, column=2, sticky=E)
+
+
+def main():
+    text()
+    buttons()
+
+
+main()
+root.mainloop()
