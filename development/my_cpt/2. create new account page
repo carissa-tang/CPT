@@ -1,33 +1,49 @@
 from Tkinter import *
 
 root = Tk()
+root.geometry("450x600")
+root.resizable(width=False, height=False)
+root.configure(background='snow')
 
 
-def text():
-    label_0 = Label(root, text="CREATE AN ACCOUNT")
-    label_1 = Label(root, text="Username: ")
-    label_2 = Label(root, text="Password: ")
-    label_0.grid(columnspan=2)
-    label_1.grid(row=1, sticky=E)
-    label_2.grid(row=2, sticky=E)
+def create_label():
+    labelfont = ('helvetica', 30, 'bold')
+    login_1 = Label(root, text="CREATE AN")
+    login_1.config(font=labelfont, relief=SUNKEN)
+    login_1.place(x=225, y=100, anchor=N)
+    login_2 = Label(root, text="ACCOUNT")
+    login_2.config(font=labelfont, relief=SUNKEN)
+    login_2.place(x=225, y=141, anchor=N)
 
 
-def user_input():
-    entry_1 = Entry(root)
-    entry_2 = Entry(root)
-    entry_1.grid(row=1, column=1)
-    entry_2.grid(row=2, column=1)
+def user_label():
+    labelfont = ('helvetica', 20)
+    user = Label(root, text="Username: ")
+    user.config(font=labelfont)
+    user.place(x=125, y=250, anchor=N)
+    user_entry = Entry(root)
+    user_entry.place(x=280, y=252, anchor=N)
 
 
-def buttons():
-    button = Button(root, text="CREATE")
-    button.grid(row=4, columnspan=2)
+def pass_label():
+    labelfont = ('helvetica', 20)
+    password = Label(root, text="Password: ")
+    password.config(font=labelfont)
+    password.place(x=125, y=290, anchor=N)
+    password_entry = Entry(root)
+    password_entry.place(x=280, y=292, anchor=N)
+
+
+def create_button():
+    button = Button(root, text="Create")
+    button.place(x=225, y=350, anchor=N)
 
 
 def main():
-    text()
-    user_input()
-    buttons()
+    create_label()
+    user_label()
+    pass_label()
+    create_button()
 
 
 main()
