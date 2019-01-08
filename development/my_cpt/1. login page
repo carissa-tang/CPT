@@ -3,37 +3,46 @@ from Tkinter import *
 root = Tk()
 root.geometry("450x600")
 root.resizable(width=False, height=False)
-
-def empty_space():
-    root.grid_columnconfigure(0, minsize=100)
-def text():
-    label_0 = Label(root, text="LOGIN")
-    label_1 = Label(root, text="Username: ")
-    label_2 = Label(root, text="Password: ")
-    label_0.grid(row=1, columnspan=3)
-    label_1.grid(row=2, column=2)
-    label_2.grid(row=3, column=2)
+root.configure(background='snow')
 
 
-def user_input():
-    entry_1 = Entry(root)
-    entry_2 = Entry(root)
-    entry_1.grid(row=2, column=3)
-    entry_2.grid(row=3, column=3)
+def login_label():
+    labelfont = ('helvetica', 50, 'bold')
+    login = Label(root, text="LOGIN")
+    login.config(font=labelfont, relief=SUNKEN)
+    login.place(x=225, y=100, anchor=N)
+
+
+def user_label():
+    labelfont = ('helvetica', 20)
+    user = Label(root, text="Username: ")
+    user.config(font=labelfont)
+    user.place(x=125, y=250, anchor=N)
+    user_entry = Entry(root)
+    user_entry.place(x=280, y=252, anchor=N)
+
+
+def pass_label():
+    labelfont = ('helvetica', 20)
+    password = Label(root, text="Password: ")
+    password.config(font=labelfont)
+    password.place(x=125, y=290, anchor=N)
+    password_entry = Entry(root)
+    password_entry.place(x=280, y=292, anchor=N)
 
 
 def buttons():
-    c = Checkbutton(root, text="Keep me logged in")
-    c.grid(row=4, columnspan=3)
+    check = Checkbutton(root, text="Keep me logged in")
+    check.place(x=225, y=350, anchor=N)
 
     button = Button(root, text="Create an account")
-    button.grid(row=5, columnspan=3)
+    button.place(x=225, y=400, anchor=N)
 
 
 def main():
-    empty_space()
-    text()
-    user_input()
+    login_label()
+    user_label()
+    pass_label()
     buttons()
 
 
