@@ -1,44 +1,76 @@
 from Tkinter import *
 
 root = Tk()
+root.geometry("450x600")
+root.resizable(width=False, height=False)
+root.configure(background='snow')
 
 
-def categories():
-    label = Label(root, text="CATEGORIES")
-    label.grid(columnspan=4)
-    button = Button(root, text="vehicle")
-    button.grid(row=2, column=1, sticky=W)
-    button = Button(root, text="interest")
-    button.grid(row=2, column=2)
-    button = Button(root, text="clothing")
-    button.grid(row=2, column=3, sticky=E)
-    button = Button(root, text="shoes")
-    button.grid(row=3, column=1, sticky=W)
-    button = Button(root, text="salary")
-    button.grid(row=3, column=2)
-    button = Button(root, text="travel")
-    button.grid(row=3, column=3, sticky=E)
-    button = Button(root, text="gifts")
-    button.grid(row=4, column=1, sticky=W)
-    button = Button(root, text="pet")
-    button.grid(row=4, column=2)
-    button = Button(root, text="books")
-    button.grid(row=4, column=3, sticky=E)
-    button = Button(root, text="cosmetics")
-    button.grid(row=5, column=1, sticky=W)
-    button = Button(root, text="stationary")
-    button.grid(row=5, column=2)
-    button = Button(root, text="restaurant")
-    button.grid(row=5, column=3, sticky=E)
+def category_label():
+    labelfont = ('helvetica', 30, 'bold')
+    category = Label(root, text="CATEGORIES")
+    category.config(font=labelfont, relief=SUNKEN)
+    category.place(x=225, y=100, anchor=N)
 
 
-def button():
+def category_buttons():
+    labelfont = ('helvetica', 15)
+
+    vehicle = Button(root, text="vehicle")
+    vehicle.config(font=labelfont)
+    vehicle.place(x=100, y=150, anchor=N)
+
+    interest = Button(root, text="interest")
+    interest.config(font=labelfont)
+    interest.place(x=100, y=200, anchor=N)
+
+    clothing = Button(root, text="clothing")
+    clothing.config(font=labelfont)
+    clothing.place(x=100, y=250, anchor=N)
+
+    shoes = Button(root, text="shoes")
+    shoes.config(font=labelfont)
+    shoes.place(x=150, y=150, anchor=N)
+
+    salary = Button(root, text="salary")
+    salary.config(font=labelfont)
+    salary.place(x=150, y=150, anchor=N)
+
+    travel = Button(root, text="travel")
+    travel.config(font=labelfont)
+    travel.place(x=150, y=150, anchor=N)
+
+    gifts = Button(root, text="gifts")
+    gifts.config(font=labelfont)
+    gifts.place(x=150, y=150, anchor=N)
+
+    pet = Button(root, text="pet")
+    pet.config(font=labelfont)
+    pet.place(x=150, y=150, anchor=N)
+
+    books = Button(root, text="books")
+    books.config(font=labelfont)
+    books.place(x=150, y=150, anchor=N)
+
+    cosmetics = Button(root, text="cosmetics")
+    cosmetics.config(font=labelfont)
+    cosmetics.place(x=150, y=150, anchor=N)
+
+    stationary = Button(root, text="stationary")
+    stationary.config(font=labelfont)
+    stationary.place(x=150, y=150, anchor=N)
+
+    restaurant = Button(root, text="restaurant")
+    restaurant.config(font=labelfont)
+    restaurant.place(x=150, y=150, anchor=N)
+
+def report_button():
     report = Button(root, text="report")
-    report.grid(row=0, column=3, sticky=E)
-def main():
-    categories()
-    button()
+    report.place(x=400, y=50, anchor=N)
 
+def main():
+    category_label()
+    category_buttons()
 
 main()
 root.mainloop()
