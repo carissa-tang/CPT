@@ -1,0 +1,19 @@
+import matplotlib
+matplotlib.use('TkAgg')
+import matplotlib.pyplot as plt
+
+vehicle = [7, 8, 6, 7]
+shoes = [2, 3, 4, 3, 2]
+gifts = [7, 8, 7, 2, 2]
+travel = [8, 5, 7, 8, 13]
+
+slices = [7, 2, 2, 13]
+spendings = ['vehicle', 'shoes', 'gifts', 'travel']
+
+plt.pie(slices, labels = spendings)
+
+plt.xlabel('')
+plt.ylabel('')
+
+plt.title('Monthly Spending')
+plt.show()
