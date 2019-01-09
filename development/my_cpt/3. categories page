@@ -14,63 +14,64 @@ def category_label():
 
 
 def category_buttons():
-    labelfont = ('helvetica', 15)
+    labelfont = ('helvetica', 20)
 
-    vehicle = Button(root, text="vehicle")
-    vehicle.config(font=labelfont)
-    vehicle.place(x=100, y=150, anchor=N)
-
-    interest = Button(root, text="interest")
+    interest = Button(root, text="interest", width=10)
     interest.config(font=labelfont)
-    interest.place(x=100, y=200, anchor=N)
+    interest.place(x=125, y=200, anchor=N)
 
-    clothing = Button(root, text="clothing")
+    clothing = Button(root, text="clothing", width=10)
     clothing.config(font=labelfont)
-    clothing.place(x=100, y=250, anchor=N)
+    clothing.place(x=125, y=250, anchor=N)
 
-    shoes = Button(root, text="shoes")
+    shoes = Button(root, text="shoes", width=10)
     shoes.config(font=labelfont)
-    shoes.place(x=150, y=150, anchor=N)
+    shoes.place(x=125, y=300, anchor=N)
 
-    salary = Button(root, text="salary")
+    salary = Button(root, text="salary", width=10)
     salary.config(font=labelfont)
-    salary.place(x=150, y=150, anchor=N)
+    salary.place(x=125, y=350, anchor=N)
 
-    travel = Button(root, text="travel")
+    travel = Button(root, text="travel", width=10)
     travel.config(font=labelfont)
-    travel.place(x=150, y=150, anchor=N)
+    travel.place(x=125, y=400, anchor=N)
 
-    gifts = Button(root, text="gifts")
-    gifts.config(font=labelfont)
-    gifts.place(x=150, y=150, anchor=N)
+    vehicle = Button(root, text="vehicle", width=10)
+    vehicle.config(font=labelfont)
+    vehicle.place(x=125, y=450, anchor=N)
 
-    pet = Button(root, text="pet")
+    pet = Button(root, text="pet", width=10)
     pet.config(font=labelfont)
-    pet.place(x=150, y=150, anchor=N)
+    pet.place(x=300, y=200, anchor=N)
 
-    books = Button(root, text="books")
+    books = Button(root, text="books", width=10)
     books.config(font=labelfont)
-    books.place(x=150, y=150, anchor=N)
+    books.place(x=300, y=250, anchor=N)
 
-    cosmetics = Button(root, text="cosmetics")
+    cosmetics = Button(root, text="cosmetics", width=10)
     cosmetics.config(font=labelfont)
-    cosmetics.place(x=150, y=150, anchor=N)
+    cosmetics.place(x=300, y=300, anchor=N)
 
-    stationary = Button(root, text="stationary")
+    stationary = Button(root, text="stationary", width=10)
     stationary.config(font=labelfont)
-    stationary.place(x=150, y=150, anchor=N)
+    stationary.place(x=300, y=350, anchor=N)
 
-    restaurant = Button(root, text="restaurant")
+    restaurant = Button(root, text="restaurant", width=10)
     restaurant.config(font=labelfont)
-    restaurant.place(x=150, y=150, anchor=N)
+    restaurant.place(x=300, y=400, anchor=N)
+
+    gifts = Button(root, text="gifts", width=10)
+    gifts.config(font=labelfont)
+    gifts.place(x=300, y=450, anchor=N)
 
 def report_button():
     report = Button(root, text="report")
-    report.place(x=400, y=50, anchor=N)
+    report.place(x=390, y=20, anchor=N)
 
 def main():
     category_label()
     category_buttons()
+    report_button()
 
 main()
 root.mainloop()
