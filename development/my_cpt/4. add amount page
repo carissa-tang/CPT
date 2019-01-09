@@ -1,29 +1,40 @@
 from Tkinter import *
 
 root = Tk()
+root.geometry("450x600")
+root.resizable(width=False, height=False)
+root.configure(background='snow')
 
 
-def text(category):
-    label_0 = Label(root, text=category)
-    label_1 = Label(root, text="Amount: ")
-    label_0.grid(columnspan=2)
-    label_1.grid(row=1)
+def category_label(category):
+    labelfont = ('helvetica', 30, 'bold')
+    category = Label(root, text=category)
+    category.config(font=labelfont, relief=SUNKEN)
+    category.place(x=225, y=100, anchor=N)
+
+
+def amount_label():
+    labelfont = ('helvetica', 20)
+    amount= Label(root, text="Amount: ")
+    amount.config(font=labelfont)
+    amount.place(x=120, y=200, anchor=N)
 
 
 def user_input():
-    entry_1 = Entry(root)
-    entry_1.grid(row=1, column=1)
+    entry = Entry(root)
+    entry.place(x=255, y=200, anchor=N)
 
 
 def buttons():
-    button = Button(root, text="<--")
-    button.grid(row=0, column=0)
-    button = Button(root, text="add")
-    button.grid(row=3, columnspan=2)
+    arrow = Button(root, text="<--")
+    arrow.place(x=50, y=20, anchor=N)
+    add = Button(root, text="add")
+    add.place(x=225, y=250, anchor=N)
 
 
 def main():
-    text("Restaurant")
+    category_label("Restaurant")
+    amount_label()
     user_input()
     buttons()
 
