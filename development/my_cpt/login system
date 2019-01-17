@@ -1,0 +1,34 @@
+import Tkinter as tk
+root = tk.Tk()
+root.geometry("450x600")
+root.resizable(width=False, height=False)
+root.configure(background='snow')
+
+
+class LoginPage:
+    def __init__(self, root):
+
+        self.user_entry_var = tk.StringVar()
+        self.user_entry = tk.Entry(root, textvariable=self.user_entry_var)
+        self.user_entry.bind('<Return>', self.show_output)
+        self.user_entry.pack()
+
+        self.pass_entry_var = tk.StringVar()
+        self.pass_entry = tk.Entry(root, textvariable=self.pass_entry_var, show="*")
+        self.pass_entry.bind('<Return>', self.show_output)
+        self.pass_entry.pack()
+
+    def show_output(self, event):
+        users = []
+        passwords = []
+        new_user = self.user_entry_var.get()
+        users.append(new_user)
+        print(users)
+
+        new_pass = self.pass_entry_var.get()
+        passwords.append(new_pass)
+        print(passwords)
+
+
+LoginPage(root)
+tk.mainloop()
