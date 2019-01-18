@@ -1,4 +1,6 @@
 from Tkinter import *
+users = []
+passwords = []
 
 
 class App(Tk):
@@ -31,27 +33,38 @@ class LoginPage(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
 
-        def labels():
+        def title():
             labelfont = ('helvetica', 50, 'bold')
             login = Label(self, text="LOGIN")
             login.config(font=labelfont, relief=SUNKEN)
             login.grid(columnspan=2, pady=100, ipadx=10)
 
+        def labels(text, row, y):
             labelfont = ('helvetica', 20)
-            user = Label(self, text="Username: ", bg='snow')
-            user.config(font=labelfont)
-            user.grid(row=1, column=0, padx=(80, 10))
+            label = Label(self, text=text, bg='snow')
+            label.config(font=labelfont)
+            label.grid(row=row, column=0, padx=(80, 10), pady=y)
 
-            password = Label(self, text="Password: ", bg='snow')
-            password.config(font=labelfont)
-            password.grid(row=2, column=0, padx=(80, 10), pady=10)
+        def login():
+            global users, passwords
+            username = user_entry2.get()
+            password = password_entry2.get()
+            if username in users:
+                indice_user = [i for i, s in enumerate(users) if username in s]
+                indice_pass = [i for i, s in enumerate(passwords) if password in s]
+                if indice_user == indice_pass:
+                    controller.show_frame(CategoryPage)
+            else:
+                text = Label(self, text="Invalid username/password", bg='snow', fg='red')
+                text.grid(row=5, columnspan=2)
 
         def entries():
-            user_entry = Entry(self)
-            user_entry.grid(row=1, column=1, padx=(10, 60))
+            global user_entry2, password_entry2
+            user_entry2 = Entry(self)
+            user_entry2.grid(row=1, column=1, padx=(10, 60))
 
-            password_entry = Entry(self, show="*")
-            password_entry.grid(row=2, column=1, padx=(10, 60), pady=10)
+            password_entry2 = Entry(self, show="*")
+            password_entry2.grid(row=2, column=1, padx=(10, 60), pady=10)
 
         def buttons():
             check = Checkbutton(self, text="Keep me logged in", bg='snow')
@@ -60,11 +73,13 @@ class LoginPage(Frame):
             create_account = Button(self, text="Create a new account", command=lambda: controller.show_frame(CreateAccount))
             create_account.grid(row=4, columnspan=2)
 
-            category_page = Button(self, text="Login", command=lambda: controller.show_frame(CategoryPage))
+            category_page = Button(self, text="Login", command=login)
             category_page.grid(row=5, columnspan=2, pady=(1, 160))
 
         def main():
-            labels()
+            title()
+            labels("Username: ", 1, 0)
+            labels("Password: ", 2, 10)
             entries()
             buttons()
 
@@ -75,36 +90,42 @@ class CreateAccount(Frame):
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
 
-        def labels():
+        def title():
             labelfont = ('helvetica', 40, 'bold')
             title = Label(self, text="CREATE ACCOUNT")
             title.config(font=labelfont, relief=SUNKEN)
             title.grid(columnspan=2, padx=20, pady=100, ipadx=10)
 
+        def labels(text, row, y):
             labelfont = ('helvetica', 20)
-            user = Label(self, text="Username: ", bg='snow')
-            user.config(font=labelfont)
-            user.grid(row=1, column=0, padx=(80, 10))
+            label = Label(self, text=text, bg='snow')
+            label.config(font=labelfont)
+            label.grid(row=row, column=0, padx=(80, 10), pady=y)
 
-            password = Label(self, text="Password: ", bg='snow')
-            password.config(font=labelfont)
-            password.grid(row=2, column=0, padx=(80, 10), pady=10)
+
+        def create_account():
+            global users, passwords
+            username = user_entry1.get()
+            password = pass_entry1.get()
+            users.append(username)
+            passwords.append(password)
+            controller.show_frame(LoginPage)
 
         def entries():
-            user_entry = Entry(self)
-            user_entry.grid(row=1, column=1, padx=(10, 60))
-            new_username = user_entry.get()
-
-            pass_entry = Entry(self)
-            pass_entry.grid(row=2, column=1, padx=(10, 60))
-            new_password = pass_entry.get()
+            global user_entry1, pass_entry1
+            user_entry1 = Entry(self)
+            user_entry1.grid(row=1, column=1, padx=(10, 60))
+            pass_entry1 = Entry(self, show="*")
+            pass_entry1.grid(row=2, column=1, padx=(10, 60))
 
         def button():
-            create_button = Button(self, text="Create account", command=lambda: controller.show_frame(CategoryPage))
+            create_button = Button(self, text="Create account", command=create_account)
             create_button.grid(row=3, columnspan=2, pady=10)
 
         def main():
-            labels()
+            title()
+            labels("Username: ", 1, 0)
+            labels("Password: ", 2, 10)
             entries()
             button()
 
@@ -125,60 +146,27 @@ class CategoryPage(Frame):
             login_page = Button(self, text="Report", command=lambda: controller.show_frame(ReportPage))
             login_page.grid(columnspan=2, row=7, pady=(20, 1), padx=(20, 1))
 
-        def categories():
+        def categories(text, row, column):
             labelfont = ('helvetica', 20)
-            technology = Button(self, text="technology", width=12, command=lambda: controller.show_frame(AddPage))
-            technology.config(font=labelfont)
-            technology.grid(pady=10, row=1, column=0, padx=(25, 1))
-
-            clothing = Button(self, text="clothing", width=12, command=lambda: controller.show_frame(AddPage))
-            clothing.config(font=labelfont)
-            clothing.grid(pady=10, row=2, column=0, padx=(25, 1))
-
-            shoes = Button(self, text="shoes", width=12, command=lambda: controller.show_frame(AddPage))
-            shoes.config(font=labelfont)
-            shoes.grid(pady=10, row=3, column=0, padx=(25, 1))
-
-            public_transport = Button(self, text="public transport", width=12, command=lambda: controller.show_frame(AddPage))
-            public_transport.config(font=labelfont)
-            public_transport.grid(pady=10, row=4, column=0, padx=(25, 1))
-
-            travel = Button(self, text="travel", width=12, command=lambda: controller.show_frame(AddPage))
-            travel.config(font=labelfont)
-            travel.grid(pady=10, row=5, column=0, padx=(25, 1))
-
-            vehicle = Button(self, text="vehicle", width=12, command=lambda: controller.show_frame(AddPage))
-            vehicle.config(font=labelfont)
-            vehicle.grid(pady=10, row=6, column=0, padx=(25, 1))
-
-            pet = Button(self, text="pet", width=12, command=lambda: controller.show_frame(AddPage))
-            pet.config(font=labelfont)
-            pet.grid(pady=10, row=1, column=1, padx=(25, 1))
-
-            books = Button(self, text="books", width=12, command=lambda: controller.show_frame(AddPage))
-            books.config(font=labelfont)
-            books.grid(pady=10, row=2, column=1, padx=(25, 1))
-
-            cosmetics = Button(self, text="cosmetics", width=12, command=lambda: controller.show_frame(AddPage))
-            cosmetics.config(font=labelfont)
-            cosmetics.grid(pady=10, row=3, column=1, padx=(25, 1))
-
-            stationary = Button(self, text="stationary", width=12, command=lambda: controller.show_frame(AddPage))
-            stationary.config(font=labelfont)
-            stationary.grid(pady=10, row=4, column=1, padx=(25, 1))
-
-            restaurant = Button(self, text="restaurant", width=12, command=lambda: controller.show_frame(AddPage))
-            restaurant.config(font=labelfont)
-            restaurant.grid(pady=10, row=5, column=1, padx=(25, 1))
-
-            gifts = Button(self, text="gifts", width=12, command=lambda: controller.show_frame(AddPage))
-            gifts.config(font=labelfont)
-            gifts.grid(pady=10, row=6, column=1, padx=(25, 1))
+            category = Button(self, text=text, width=12, command=lambda: controller.show_frame(AddPage))
+            category.config(font=labelfont)
+            category.grid(pady=10, row=row, column=column, padx=(25, 1))
 
         def main():
             title()
             button()
-            categories()
+            categories("technology", 1, 0)
+            categories("clothing", 2, 0)
+            categories("shoes", 3, 0)
+            categories("public transport", 4, 0)
+            categories("travel", 5, 0)
+            categories("vehicle", 6, 0)
+            categories("pet", 1, 1)
+            categories("books", 2, 1)
+            categories("cosmetics", 3, 1)
+            categories("stationary", 4, 1)
+            categories("restaurant", 5, 1)
+            categories("gifts", 6, 1)
 
         main()
 
