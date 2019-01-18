@@ -50,8 +50,8 @@ class LoginPage(Frame):
             username = user_entry2.get()
             password = password_entry2.get()
             if username in users:
-                indice_user = [i for i, s in enumerate(users) if username in s]
-                indice_pass = [i for i, s in enumerate(passwords) if password in s]
+                i_user = [i for i, s in enumerate(users) if username in s]
+                i_pass = [i for i, s in enumerate(passwords) if password in s]
                 if indice_user == indice_pass:
                     controller.show_frame(CategoryPage)
             else:
@@ -101,7 +101,6 @@ class CreateAccount(Frame):
             label = Label(self, text=text, bg='snow')
             label.config(font=labelfont)
             label.grid(row=row, column=0, padx=(80, 10), pady=y)
-
 
         def create_account():
             global users, passwords
