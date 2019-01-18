@@ -16,7 +16,7 @@ class App(Tk):
 
         self.frames = {}
 
-        for F in (LoginPage, CreateAccount, CategoryPage, AddPage, ReportPage):
+        for F in (LoginPage, CreateAccount, CategoryPage, AddPage):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
@@ -142,8 +142,21 @@ class CategoryPage(Frame):
             title.config(font=labelfont, relief=SUNKEN)
             title.grid(columnspan=2, padx=(40, 10), pady=20, ipadx=10)
 
+        def pie_chart():
+            import matplotlib
+            matplotlib.use('TkAgg')
+            import matplotlib.pyplot as plt
+
+            categories = ['vehicle', 'shoes', 'gifts', 'travel']
+            slices = [15, 45, 24, 10]
+
+            plt.pie(slices, labels=categories, autopct='%1.1f%%', shadow=True, startangle=140)
+            plt.axis('equal')
+            plt.title('Monthly Expenses')
+            plt.show()
+
         def button():
-            login_page = Button(self, text="Report", command=lambda: controller.show_frame(ReportPage))
+            login_page = Button(self, text="Report", command=pie_chart)
             login_page.grid(columnspan=2, row=7, pady=(20, 1), padx=(20, 1))
 
         def categories(text, row, column):
