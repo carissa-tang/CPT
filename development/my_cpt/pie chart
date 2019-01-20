@@ -9,3 +9,47 @@ plt.pie(slices, labels=categories, autopct='%1.1f%%', shadow=True, startangle=14
 plt.axis('equal')
 plt.title('Monthly Expenses')
 plt.show()
+
+while True:
+    try:
+        num = int(input("Enter a number:"))
+            if num #is a int:
+                #the name of the list.append(num)
+    except:
+        print("Error, please enter a number")
+
+def total_average(#the name of the list):
+    total_pet = 0
+    for i in #the name of the list:
+        total_pet += temp
+    return total_pet
+
+def add_to_slice(#all lists):
+    #I'm not sure what all the catrgories are called, can you change the category names
+    if category = "pet":
+        slices[0] = total_pet
+    if category = "transportation":
+        slices[1]= total_pet#change it to whatever name it is
+    if category = "pet":
+        slices[2]= total_pet
+    if category = "pet":
+        slices[3]= total_pet
+    if category = "pet":
+        slices[4]= total_pet
+    if category = "pet":
+        slices[5]= total_pet
+    if category = "pet":
+        slices[6]= total_pet
+    if category = "pet":
+        slices[7] = total_pet
+    if category = "pet":
+        slices[8]= total_pet
+    if category = "pet":
+        slices[9]= total_pet
+    if category = "pet":
+        slices[10]= total_pet
+    if category = "pet":
+        slices[12] total_pet
+
+# i didnt do the test cases cuz im not sure of the names 
+        
