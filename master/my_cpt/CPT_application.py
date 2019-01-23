@@ -2,29 +2,32 @@ from Tkinter import *
 
 users = []
 passwords = []
-technology = []
+dictionary = {
+    "technology": [],
+    "clothing": [],
+    "shoes": [],
+    "public transport": [],
+    "travel": [],
+    "vehicle": [],
+    "pet": [],
+    "books": [],
+    "cosmetics": [],
+    "stationary": [],
+    "restaurant": [],
+    "gifts": []
+}
+
 tech_sum = 0
-clothing = []
 cloth_sum = 0
-shoes = []
 shoes_sum = 0
-public_transport = []
 public_sum = 0
-travel = []
 trav_sum = 0
-vehicle = []
 vehic_sum = 0
-pet = []
 pet_sum = 0
-books = []
 books_sum = 0
-cosmetics = []
 cosm_sum = 0
-stationary = []
 stat_sum = 0
-restaurant = []
 rest_sum = 0
-gifts = []
 gifts_sum = 0
 
 
@@ -244,19 +247,17 @@ class TechnologyPage(Frame):
         category_labels(self, "Technology")
 
         def add_button():
-            global technology, tech_sum
+            global dictionary, tech_sum
             new_amount = amount_entry.get()
             try:
-                technology.append(int(new_amount))
+                dictionary["technology"].append(int(new_amount))
             except:
-                technology.append(0)
+                dictionary["technology"].append(0)
             controller.show_frame(CategoryPage)
             sum = 0
-            for number in technology:
+            for number in dictionary["technology"]:
                 sum += number
-            tech_sum = sum
-            print(tech_sum)
-
+            tech_sum = sum     
         amount_entry = Entry(self)
         amount_entry.pack()
 
@@ -271,18 +272,16 @@ class ClothingPage(Frame):
         category_labels(self, "Clothing")
 
         def add_button():
-            global clothing, cloth_sum
+            global dictionary, cloth_sum
             new_amount = amount_entry.get()
             try:
-                clothing.append(int(new_amount))
+                dictionary["clothing"].append(int(new_amount))
             except:
-                clothing.append(0)
-            controller.show_frame(CategoryPage)
+                dictionary["clothing"].append(0)
             sum = 0
-            for number in clothing:
+            for number in dictionary["clothing"]:
                 sum += number
             cloth_sum = sum
-            print(cloth_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
@@ -297,18 +296,17 @@ class ShoesPage(Frame):
         category_labels(self, "Shoes")
 
         def add_button():
-            global shoes, shoes_sum
+            global dictionary, shoes_sum
             new_amount = amount_entry.get()
             try:
-                shoes.append(int(new_amount))
+                dictionary["shoes"].append(int(new_amount))
             except:
-                shoes.append(0)
+                dictionary["shoes"].append(0)
             controller.show_frame(CategoryPage)
             sum = 0
-            for number in shoes:
+            for number in dictionary["shoes"]:
                 sum += number
             shoes_sum = sum
-            print(shoes_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
@@ -327,15 +325,14 @@ class PublicTransportPage(Frame):
             global public_transport, public_sum
             new_amount = amount_entry.get()
             try:
-                public_transport.append(int(new_amount))
+                dictionary["shoes"].append(int(new_amount))
             except:
-                public_transport.append(0)
+                dictionary["public transport"].append(0)
             controller.show_frame(CategoryPage)
             sum = 0
-            for number in public_transport:
+            for number in dictionary["shoes"]:
                 sum += number
             public_sum = sum
-            print(public_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
@@ -351,18 +348,17 @@ class TravelPage(Frame):
         category_labels(self, "Travel")
 
         def add_button():
-            global travel, trav_sum
+            global dictionary, trav_sum
             new_amount = amount_entry.get()
             try:
-                travel.append(int(new_amount))
+                dictionary["travel"].append(int(new_amount))
             except:
-                travel.append(0)
+                dictionary["travel"].append(0)
             controller.show_frame(CategoryPage)
             sum = 0
-            for number in travel:
+            for number in dictionary["travel"]:
                 sum += number
             trav_sum = sum
-            print(trav_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
@@ -378,18 +374,17 @@ class VehiclePage(Frame):
         category_labels(self, "Vehicle")
 
         def add_button():
-            global vehicle, vehic_sum
+            global dictionary, vehic_sum
             new_amount = amount_entry.get()
             try:
-                vehicle.append(int(new_amount))
+                dictionary["vehicle"].append(int(new_amount))
             except:
-                vehicle.append(0)
+                dictionary["vehicle"].append(0)
             controller.show_frame(CategoryPage)
             sum = 0
-            for number in vehicle:
+            for number in dictionary["vehicle"]:
                 sum += number
             vehic_sum = sum
-            print(vehic_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
@@ -405,18 +400,17 @@ class PetPage(Frame):
         category_labels(self, "Pet")
 
         def add_button():
-            global pet, pet_sum
+            global dictionary, pet_sum
             new_amount = amount_entry.get()
             try:
-                pet.append(int(new_amount))
+                dictionary["pet"].append(int(new_amount))
             except:
-                pet.append(0)
+                dictionary["pet"].append(0)
             controller.show_frame(CategoryPage)
             sum = 0
-            for number in pet:
+            for number in dictionary["pet"]:
                 sum += number
             pet_sum = sum
-            print(pet_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
@@ -432,18 +426,17 @@ class BooksPage(Frame):
         category_labels(self, "Books")
 
         def add_button():
-            global books, books_sum
+            global dictionary, books_sum
             new_amount = amount_entry.get()
             try:
-                books.append(int(new_amount))
+                dictionary["books"].append(int(new_amount))
             except:
-                books.append(0)
+                dictionary["books"].append(0)
             controller.show_frame(CategoryPage)
             sum = 0
-            for number in books:
+            for number in dictionary["books"]:
                 sum += number
             books_sum = sum
-            print(books_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
@@ -459,18 +452,17 @@ class CosmeticsPage(Frame):
         category_labels(self, "Cosmetics")
 
         def add_button():
-            global cosmetics, cosm_sum
+            global dictionary, cosm_sum
             new_amount = amount_entry.get()
             try:
-                cosmetics.append(int(new_amount))
+                dictionary["cosmetics"].append(int(new_amount))
             except:
-                cosmetics.append(0)
+                dictionary["cosmetics"].append(0)
             controller.show_frame(CategoryPage)
             sum = 0
-            for number in cosmetics:
+            for number in dictionary["cosmetics"]:
                 sum += number
             cosm_sum = sum
-            print(cosm_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
@@ -486,18 +478,17 @@ class StationaryPage(Frame):
         category_labels(self, "Stationary")
 
         def add_button():
-            global stationary, stat_sum
+            global dictionary, stat_sum
             new_amount = amount_entry.get()
             try:
-                stationary.append(int(new_amount))
+                dictionary["stationary"].append(int(new_amount))
             except:
-                stationary.append(0)
+                dictionary["stationary"].append(0)
             controller.show_frame(CategoryPage)
             sum = 0
-            for number in stationary:
+            for number in dictionary["stationary"]:
                 sum += number
             stat_sum = sum
-            print(stat_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
@@ -513,18 +504,17 @@ class RestaurantPage(Frame):
         category_labels(self, "Restaurant")
 
         def add_button():
-            global restaurant, rest_sum
+            global dictionary, rest_sum
             new_amount = amount_entry.get()
             try:
-                restaurant.append(int(new_amount))
+                dictionary["restaurant"].append(int(new_amount))
             except:
-                restaurant.append(0)
+                dictionary["restaurant"].append(0)
             controller.show_frame(CategoryPage)
             sum = 0
-            for number in restaurant:
+            for number in dictionary["restaurant"]:
                 sum += number
             rest_sum = sum
-            print(rest_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
@@ -551,7 +541,6 @@ class GiftsPage(Frame):
             for number in gifts:
                 sum += number
             gifts_sum = sum
-            print(gifts_sum)
 
         amount_entry = Entry(self)
         amount_entry.pack()
