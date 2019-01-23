@@ -41,7 +41,10 @@ class App(Tk):
 
         self.frames = {}
 
-        for F in (LoginPage, CreateAccount, CategoryPage, TechnologyPage, ClothingPage, ShoesPage, PublicTransportPage, TravelPage, VehiclePage, PetPage, BooksPage, CosmeticsPage, StationaryPage, RestaurantPage, GiftsPage):
+        for F in (LoginPage, CreateAccount, CategoryPage, TechnologyPage,
+                  ClothingPage, ShoesPage, PublicTransportPage, TravelPage,
+                  VehiclePage, PetPage, BooksPage, CosmeticsPage,
+                  StationaryPage, RestaurantPage, GiftsPage):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
@@ -80,7 +83,8 @@ class LoginPage(Frame):
                 if i_user == i_pass:
                     controller.show_frame(CategoryPage)
             else:
-                text = Label(self, text="Invalid username/password", bg='snow', fg='red')
+                text = Label(self, text="Invalid username/password",
+                             bg='snow', fg='red')
                 text.grid(row=5, columnspan=2)
 
         def entries():
@@ -95,7 +99,9 @@ class LoginPage(Frame):
             check = Checkbutton(self, text="Keep me logged in", bg='snow')
             check.grid(row=3, columnspan=2, pady=10)
 
-            create_account = Button(self, text="Create a new account", command=lambda: controller.show_frame(CreateAccount))
+            create_account = Button(self, text="Create a new account",
+                                    command=lambda:
+                                    controller.show_frame(CreateAccount))
             create_account.grid(row=4, columnspan=2)
 
             category_page = Button(self, text="Login", command=login)
@@ -143,7 +149,8 @@ class CreateAccount(Frame):
             pass_entry1.grid(row=2, column=1, padx=(10, 60))
 
         def button():
-            create_button = Button(self, text="Create account", command=create_account)
+            create_button = Button(self, text="Create account",
+                                   command=create_account)
             create_button.grid(row=3, columnspan=2, pady=10)
 
         def main():
@@ -167,15 +174,23 @@ class CategoryPage(Frame):
             title.grid(columnspan=2, padx=(40, 10), pady=20, ipadx=10)
 
         def pie_chart():
-            global tech_sum, cloth_sum, shoes_sum, public_sum, trav_sum, vehic_sum, pet_sum, books_sum, cosm_sum, stat_sum, rest_sum, gifts_sum
+            global tech_sum, cloth_sum, shoes_sum, public_sum,
+            trav_sum, vehic_sum, pet_sum, books_sum,
+            cosm_sum, stat_sum, rest_sum, gifts_sum
             import matplotlib
             matplotlib.use('TkAgg')
             import matplotlib.pyplot as plt
 
-            categories = ["technology", "clothing", "shoes", "public transport", "travel", "vehicle", "pet", "books", "cosmetics", "stationary", "restaurant", "gifts"]
-            slices = [tech_sum, cloth_sum, shoes_sum, public_sum, trav_sum, vehic_sum, pet_sum, books_sum, cosm_sum, stat_sum, rest_sum, gifts_sum]
+            categories = ["technology", "clothing", "shoes",
+                          "public transport", "travel", "vehicle",
+                          "pet", "books", "cosmetics",
+                          "stationary", "restaurant", "gifts"]
+            slices = [tech_sum, cloth_sum, shoes_sum, public_sum,
+                      trav_sum, vehic_sum, pet_sum, books_sum,
+                      cosm_sum, stat_sum, rest_sum, gifts_sum]
 
-            plt.pie(slices, labels=categories, autopct='%1.1f%%', shadow=True, startangle=140)
+            plt.pie(slices, labels=categories, autopct='%1.1f%%',
+                    shadow=True, startangle=140)
             plt.axis('equal')
             plt.title('Monthly Expenses')
             plt.show()
@@ -186,7 +201,8 @@ class CategoryPage(Frame):
 
         def categories(text, row, column, page):
             labelfont = ('helvetica', 20)
-            category = Button(self, text=text, width=12, command=lambda: controller.show_frame(page))
+            category = Button(self, text=text, width=12,
+                              command=lambda: controller.show_frame(page))
             category.config(font=labelfont)
             category.grid(pady=10, row=row, column=column, padx=(25, 1))
 
