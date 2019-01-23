@@ -33,6 +33,8 @@ stat_sum = 0
 rest_sum = 0
 gifts_sum = 0
 
+labelfont = ('helvetica', 20)
+
 
 class App(Tk):
     def __init__(self, *args, **kwargs):
@@ -69,17 +71,18 @@ class LoginPage(Frame):
         Frame.__init__(self, parent)
 
         def title():
-            labelfont = ('helvetica', 50, 'bold')
+            titlefont = ('helvetica', 50, 'bold')
             login = Label(self, text="LOGIN")
-            login.config(font=labelfont, relief=SUNKEN)
+            login.config(font=titlefont, relief=SUNKEN)
             login.grid(columnspan=2, pady=100, ipadx=10)
 
         def labels(text, row, y):
-            labelfont = ('helvetica', 20)
+            global labelfont
             label = Label(self, text=text, bg='snow')
             label.config(font=labelfont)
             label.grid(row=row, column=0, padx=(80, 10), pady=y)
 
+        #Checks if username and password exist
         def login():
             global users, passwords
             username = user_entry2.get()
@@ -129,17 +132,18 @@ class CreateAccount(Frame):
         Frame.__init__(self, parent)
 
         def title():
-            labelfont = ('helvetica', 40, 'bold')
+            titlefont = ('helvetica', 40, 'bold')
             title = Label(self, text="CREATE ACCOUNT")
-            title.config(font=labelfont, relief=SUNKEN)
+            title.config(font=titlefont, relief=SUNKEN)
             title.grid(columnspan=2, padx=20, pady=100, ipadx=10)
 
         def labels(text, row, y):
-            labelfont = ('helvetica', 20)
+            global labelfont
             label = Label(self, text=text, bg='snow')
             label.config(font=labelfont)
             label.grid(row=row, column=0, padx=(80, 10), pady=y)
 
+        #Stores new username and password
         def create_account():
             global users, passwords
             username = user_entry1.get()
@@ -175,11 +179,12 @@ class CategoryPage(Frame):
         Frame.__init__(self, parent)
 
         def title():
-            labelfont = ('helvetica', 50, 'bold')
+            titlefont = ('helvetica', 50, 'bold')
             title = Label(self, text="Category Page")
-            title.config(font=labelfont, relief=SUNKEN)
+            title.config(font=titlefont, relief=SUNKEN)
             title.grid(columnspan=2, padx=(40, 10), pady=20, ipadx=10)
 
+        #Takes categories and its values to make a pie chart
         def pie_chart():
             global tech_sum, cloth_sum, shoes_sum, public_sum, trav_sum, vehic_sum, pet_sum, books_sum, cosm_sum, stat_sum, rest_sum, gifts_sum
             import matplotlib
@@ -205,7 +210,7 @@ class CategoryPage(Frame):
             login_page.grid(columnspan=2, row=7, pady=(20, 1), padx=(20, 1))
 
         def categories(text, row, column, page):
-            labelfont = ('helvetica', 20)
+            global labelfont
             category = Button(self, text=text, width=12,
                               command=lambda: controller.show_frame(page))
             category.config(font=labelfont)
@@ -231,12 +236,12 @@ class CategoryPage(Frame):
 
 
 def category_labels(self, title):
-    titlefont = ('helvetica', 50, 'bold')
+    global labelfont
+    titlefont = ('helvetica', 40, 'bold')
     title = Label(self, text=title)
     title.config(font=titlefont, relief=SUNKEN)
     title.pack(padx=10, pady=10, ipadx=10)
 
-    labelfont = ('helvetica', 20)
     amount = Label(self, text="Amount: ")
     amount.config(font=labelfont)
     amount.pack(padx=10, pady=10)
