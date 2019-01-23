@@ -560,3 +560,4 @@ class MainMenu:
 
 app = App()
 app.mainloop()
+
