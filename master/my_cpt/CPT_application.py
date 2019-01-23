@@ -177,9 +177,7 @@ class CategoryPage(Frame):
             title.grid(columnspan=2, padx=(40, 10), pady=20, ipadx=10)
 
         def pie_chart():
-            global tech_sum, cloth_sum, shoes_sum, public_sum,
-            trav_sum, vehic_sum, pet_sum, books_sum,
-            cosm_sum, stat_sum, rest_sum, gifts_sum
+            global tech_sum, cloth_sum, shoes_sum, public_sum, trav_sum, vehic_sum, pet_sum, books_sum, cosm_sum, stat_sum, rest_sum, gifts_sum
             import matplotlib
             matplotlib.use('TkAgg')
             import matplotlib.pyplot as plt
@@ -253,11 +251,16 @@ class TechnologyPage(Frame):
                 dictionary["technology"].append(int(new_amount))
             except:
                 dictionary["technology"].append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["technology"]:
                 sum += number
             tech_sum = sum
+
         amount_entry = Entry(self)
         amount_entry.pack()
 
@@ -277,7 +280,11 @@ class ClothingPage(Frame):
             try:
                 dictionary["clothing"].append(int(new_amount))
             except:
-                dictionary["clothing"].append(0)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["clothing"]:
                 sum += number
@@ -285,6 +292,7 @@ class ClothingPage(Frame):
 
         amount_entry = Entry(self)
         amount_entry.pack()
+
         add = Button(self, text="add", command=add_button)
         add.pack()
 
@@ -301,8 +309,11 @@ class ShoesPage(Frame):
             try:
                 dictionary["shoes"].append(int(new_amount))
             except:
-                dictionary["shoes"].append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["shoes"]:
                 sum += number
@@ -327,8 +338,11 @@ class PublicTransportPage(Frame):
             try:
                 dictionary["shoes"].append(int(new_amount))
             except:
-                dictionary["public transport"].append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["shoes"]:
                 sum += number
@@ -353,8 +367,11 @@ class TravelPage(Frame):
             try:
                 dictionary["travel"].append(int(new_amount))
             except:
-                dictionary["travel"].append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["travel"]:
                 sum += number
@@ -379,8 +396,11 @@ class VehiclePage(Frame):
             try:
                 dictionary["vehicle"].append(int(new_amount))
             except:
-                dictionary["vehicle"].append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["vehicle"]:
                 sum += number
@@ -405,8 +425,11 @@ class PetPage(Frame):
             try:
                 dictionary["pet"].append(int(new_amount))
             except:
-                dictionary["pet"].append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["pet"]:
                 sum += number
@@ -431,8 +454,11 @@ class BooksPage(Frame):
             try:
                 dictionary["books"].append(int(new_amount))
             except:
-                dictionary["books"].append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["books"]:
                 sum += number
@@ -457,8 +483,11 @@ class CosmeticsPage(Frame):
             try:
                 dictionary["cosmetics"].append(int(new_amount))
             except:
-                dictionary["cosmetics"].append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["cosmetics"]:
                 sum += number
@@ -483,8 +512,11 @@ class StationaryPage(Frame):
             try:
                 dictionary["stationary"].append(int(new_amount))
             except:
-                dictionary["stationary"].append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["stationary"]:
                 sum += number
@@ -509,8 +541,11 @@ class RestaurantPage(Frame):
             try:
                 dictionary["restaurant"].append(int(new_amount))
             except:
-                dictionary["restaurant"].append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
             for number in dictionary["restaurant"]:
                 sum += number
@@ -530,15 +565,18 @@ class GiftsPage(Frame):
         category_labels(self, "Gifts")
 
         def add_button():
-            global gifts, gifts_sum
+            global dictionary, gifts_sum
             new_amount = amount_entry.get()
             try:
-                gifts.append(int(new_amount))
+                dictionary["gifts"].append(int(new_amount))
             except:
-                gifts.append(0)
-            controller.show_frame(CategoryPage)
+                text = Label(self, text="Please enter a number.",
+                             bg='snow', fg='red')
+                text.pack()
+            else:
+                controller.show_frame(CategoryPage)
             sum = 0
-            for number in gifts:
+            for number in dictionary["gifts"]:
                 sum += number
             gifts_sum = sum
 
@@ -560,4 +598,3 @@ class MainMenu:
 
 app = App()
 app.mainloop()
-
