@@ -2,6 +2,8 @@ from Tkinter import *
 
 users = []
 passwords = []
+
+#categories and list containing its values
 dictionary = {
     "technology": [],
     "clothing": [],
@@ -17,6 +19,7 @@ dictionary = {
     "gifts": []
 }
 
+#variables for sums of values in each category
 tech_sum = 0
 cloth_sum = 0
 shoes_sum = 0
@@ -44,6 +47,7 @@ class App(Tk):
 
         self.frames = {}
 
+        #navigate between different pages
         for F in (LoginPage, CreateAccount, CategoryPage, TechnologyPage,
                   ClothingPage, ShoesPage, PublicTransportPage, TravelPage,
                   VehiclePage, PetPage, BooksPage, CosmeticsPage,
