@@ -3,7 +3,7 @@ from Tkinter import *
 users = []
 passwords = []
 
-#categories and list containing its values
+# categories and list containing its values#
 dictionary = {
     "technology": [],
     "clothing": [],
@@ -19,7 +19,7 @@ dictionary = {
     "gifts": []
 }
 
-#variables for sums of values in each category
+# variables for sums of values in each category
 tech_sum = 0
 cloth_sum = 0
 shoes_sum = 0
@@ -49,7 +49,7 @@ class App(Tk):
 
         self.frames = {}
 
-        #navigate between different pages
+        # navigate between different pages
         for F in (LoginPage, CreateAccount, CategoryPage, TechnologyPage,
                   ClothingPage, ShoesPage, PublicTransportPage, TravelPage,
                   VehiclePage, PetPage, BooksPage, CosmeticsPage,
@@ -82,7 +82,7 @@ class LoginPage(Frame):
             label.config(font=labelfont)
             label.grid(row=row, column=0, padx=(80, 10), pady=y)
 
-        #Checks if username and password exist
+        # Checks if username and password exist
         def login():
             global users, passwords
             username = user_entry2.get()
@@ -143,7 +143,7 @@ class CreateAccount(Frame):
             label.config(font=labelfont)
             label.grid(row=row, column=0, padx=(80, 10), pady=y)
 
-        #Stores new username and password
+        # Stores new username and password
         def create_account():
             global users, passwords
             username = user_entry1.get()
@@ -184,9 +184,11 @@ class CategoryPage(Frame):
             title.config(font=titlefont, relief=SUNKEN)
             title.grid(columnspan=2, padx=(40, 10), pady=20, ipadx=10)
 
-        #Takes categories and its values to make a pie chart
+        # Takes categories and its values to make a pie chart
         def pie_chart():
-            global tech_sum, cloth_sum, shoes_sum, public_sum, trav_sum, vehic_sum, pet_sum, books_sum, cosm_sum, stat_sum, rest_sum, gifts_sum
+            global tech_sum, cloth_sum, shoes_sum, public_sum
+            global trav_sum, vehic_sum, pet_sum, books_sum
+            global cosm_sum, stat_sum, rest_sum, gifts_sum
             import matplotlib
             matplotlib.use('TkAgg')
             import matplotlib.pyplot as plt
@@ -607,3 +609,4 @@ class MainMenu:
 
 app = App()
 app.mainloop()
+
