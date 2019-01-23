@@ -257,7 +257,7 @@ class TechnologyPage(Frame):
             sum = 0
             for number in dictionary["technology"]:
                 sum += number
-            tech_sum = sum     
+            tech_sum = sum
         amount_entry = Entry(self)
         amount_entry.pack()
 
